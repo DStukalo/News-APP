@@ -1,66 +1,8 @@
-// function customHttp() {
-//   return {
-//     get(url, cb) {
-//       try {
-//         const xhr = new XMLHttpRequest();
-//         xhr.open("get", url);
-//         xhr.addEventListener("load", () => {
-//           if (Math.floor(xhr.status / 100) !== 2) {
-//             cb(`Error. Status code: ${xhr.status}`, xhr);
-//             return;
-//           }
-
-//           const response = JSON.parse(xhr.responseText);
-//           cb(null, response);
-//         });
-//         xhr.addEventListener("error", () => {
-//           cb(`Error. Status code: ${xhr.status}`, xhr);
-//         });
-//         xhr.send();
-//       } catch (error) {
-//         cb(error);
-//       }
-//     },
-//     post(url, body, headers) {
-//       try {
-//         const xhr = new XMLHttpRequest();
-//         xhr.open("post", url);
-//         xhr.addEventListener("load", () => {
-//           if (Math.floor(xhr.status / 100) !== 2) {
-//             cb(`Error. Status code: ${xhr.status}`, xhr);
-//             return;
-//           }
-
-//           const response = JSON.parse(xhr.responseText);
-//           cb(null, response);
-//         });
-//         xhr.addEventListener("error", () => {
-//           cb(`Error. Status code: ${xhr.status}`, xhr);
-//         });
-//         xhr.send(JSON.stringify(body));
-//       } catch (error) {
-//         cb(error);
-//       }
-//     },
-//   };
-// }
-
-// const myHTTP = customHttp();
-
 const newsService = (function () {
   const apiKey = "d499a1646e134805a145fb29870f0e41";
   const apiUrl = "http://newsapi.org/v2";
   // const apiUrl = "https://news-api-v2.herokuapp.com";
   return {
-    // topHeadlines(country = "ua", category = "general", cb) {
-    //   myHTTP.get(
-    //     `${apiUrl}/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`,
-    //     cb
-    //   );
-    // },
-    // everything(query, cb) {
-    //   myHTTP.get(`${apiUrl}/everything?q=${query}&apiKey=${apiKey}`, cb);
-    // },
     topHeadlines(country = "ua", category = "general", cb) {
       fetch(
         `${apiUrl}/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`
@@ -82,24 +24,6 @@ const form = document.forms["newsControls"];
 const countrySelect = form.elements["country"];
 const categorySelect = form.elements["category"];
 const searchInput = form.elements["search"];
-
-// function HttpRequestForFetch(url) {
-//   return fetch(url).then((response) => response.json());
-// }
-
-// const newsService1 = function () {
-//   const apiKey = "d499a1646e134805a145fb29870f0e41";
-//   const apiUrl = "http://newsapi.org/v2";
-//   const country = countrySelect.value || "ua";
-//   const category = categorySelect.value || "general";
-//   const searchText = searchInput.value;
-//   HttpRequestForFetch(
-//     `${apiUrl}/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`
-//   )
-//     .then((post) => console.log(post))
-//     .catch((rej) => console.log(rej));
-// };
-// newsService1();
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -126,14 +50,6 @@ function loadNews() {
 function onGetResponse(res) {
   console.log("first and two");
   console.log(res);
-  // if (err) {
-  //   ShowAlert(err, "error-msg");
-  //   return;
-  // }
-  // if (!res.articles.length) {
-  //   showEmptyMessage();
-  //   return;
-  // }
   renderNews(res.articles);
 }
 
