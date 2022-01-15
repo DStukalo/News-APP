@@ -68,9 +68,6 @@ const form = document.forms["newsControls"];
 const countrySelect = form.elements["country"];
 const categorySelect = form.elements["category"];
 const searchInput = form.elements["search"];
-// const country = countrySelect.value;
-// const category = categorySelect.value;
-// const searchText = searchInput.value;
 const formObj = {
   country: countrySelect.value,
   category: categorySelect.value,
@@ -87,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadNews(formObj) {
-  console.log(formObj);
   const newsContainer = document.querySelector(".news-container");
   newsContainer.insertAdjacentHTML("afterbegin", showPreloader());
   if (!formObj.searchText) {
