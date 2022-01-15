@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News APP</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="naw-wrapper">
+      <a href="#">News APP</a>
+    </nav>
+    <main>
+      <div class="container d-grid">
+        <div class="search-controls">
+          <div class="card">
+            <div class="card-form">
+              <p class="card-form-title">Search news</p>
+              <form name="newsControls">
+                <label class="form-label">Choose you country</label>
+                <select name="country" id="country" class="form-select">
+                  <option value="ua">Ukraine</option>
+                  <option value="us">United States</option>
+                </select>
+                <label class="form-label">Choose you category</label>
+                <select name="category" id="category" class="form-select">
+                  <option value="general">General</option>
+                  <option value="sport">Sport</option>
+                  <option value="technology">Technology</option>
+                  <option value="health">Health</option>
+                  <option value="entertainment">Entertainment</option>
+                  <option value="business">Business</option>
+                </select>
+                <input type="text" name="search" />
+                <input type="submit" />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="news-container d-grid"></div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
