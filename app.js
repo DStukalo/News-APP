@@ -52,7 +52,7 @@ const newsService = (function () {
   const apiUrl = "https://news-api-v2.herokuapp.com";
   // const apiUrl = "http://newsapi.org/v2";
   return {
-    topHeadlines(country = "ua", category = "general", cb) {
+    topHeadlines(country = "us", category = "general", cb) {
       myHTTP.get(
         `${apiUrl}/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`,
         cb
