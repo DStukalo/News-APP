@@ -49,8 +49,8 @@ const myHTTP = customHttp();
 
 const newsService = (function () {
   const apiKey = "d499a1646e134805a145fb29870f0e41";
-  // const apiUrl = "https://news-api-v2.herokuapp.com";
-  const apiUrl = "http://newsapi.org/v2";
+  const apiUrl = "https://news-api-v2.herokuapp.com";
+  // const apiUrl = "http://newsapi.org/v2";
   return {
     topHeadlines(country = "ua", category = "general", cb) {
       myHTTP.get(
@@ -68,9 +68,6 @@ const form = document.forms["newsControls"];
 const countrySelect = form.elements["country"];
 const categorySelect = form.elements["category"];
 const searchInput = form.elements["search"];
-// const country = countrySelect.value;
-// const category = categorySelect.value;
-// const searchText = searchInput.value;
 const formObj = {
   country: countrySelect.value,
   category: categorySelect.value,
@@ -87,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadNews(formObj) {
-  console.log(formObj);
   const newsContainer = document.querySelector(".news-container");
   newsContainer.insertAdjacentHTML("afterbegin", showPreloader());
   if (!formObj.searchText) {
